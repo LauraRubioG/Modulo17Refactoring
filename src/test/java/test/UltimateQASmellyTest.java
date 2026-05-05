@@ -1,3 +1,4 @@
+// FIRST VERSION (SMELLS)
 package test;
 
 // Imports required libraries. Notice the high number of Selenium UI-specific imports
