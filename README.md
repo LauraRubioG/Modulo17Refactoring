@@ -1,4 +1,4 @@
-# Final Project: "The Clean Code & Automation Cycle" - Module 17 **ENTORNOS DE DESAROLLO**
+# Final Project: "The Clean Code & Automation Cycle" - Module 17 **Development Environment**
 
 > **💖 Authors:** Marta González González and Laura Rubio Gallardo
 
@@ -104,7 +104,6 @@ The professional tools used for the development of this practice were:
 ![Java](https://img.shields.io/badge/Java-FF69B4?style=for-the-badge&logo=java&logoColor=white)
 ![Selenium](https://img.shields.io/badge/Selenium-FF69B4?style=for-the-badge&logo=selenium&logoColor=white)
 ![JUnit 5](https://img.shields.io/badge/JUnit_5-FF69B4?style=for-the-badge&logo=junit5&logoColor=white)
-![Clean Code](https://img.shields.io/badge/Clean_Code-FF69B4?style=for-the-badge)
 
 </div>
 
