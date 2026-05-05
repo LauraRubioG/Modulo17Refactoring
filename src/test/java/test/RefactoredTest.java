@@ -1,4 +1,4 @@
-
+// SECOND VERSION (REFACTORING)
 package test;
 // Imports necessary libraries: WebDriverManager for automated driver setup,
 // JUnit for the test lifecycle (@Test, @BeforeEach), and Selenium for the browser.
