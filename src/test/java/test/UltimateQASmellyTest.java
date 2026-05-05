@@ -172,4 +172,29 @@ public class UltimateQASmellyTest {
         // Closes the browser execution.
         browserDriver.quit();
     }
+    @Test
+    void anotherRedundantTest() {
+// SMELL 4 - Dispensables: Duplicate Code
+// As mentioned before, we are repeating the browser startup rules.
+        // Configures binaries.
+        WebDriverManager.chromedriver().setup();
+        // Launches the browser.
+        WebDriver browserDriver = new ChromeDriver();
+        // Maximizes the view.
+        browserDriver.manage().window().maximize();
+
+// We read the unprotected configuration variable again.
+        // Loads configuration object.
+        InternalConfig internalConfig = new InternalConfig();
+        // Navigates to the internet via the vulnerable property.
+        browserDriver.get(internalConfig.baseWebsiteUrl);
+
+        // Verifies the tab title.
+        assertTrue(browserDriver.getTitle().contains("Simple HTML Elements For Automation"));
+
+        // Stops the instance.
+        browserDriver.quit();
+    }
+
+
 }
