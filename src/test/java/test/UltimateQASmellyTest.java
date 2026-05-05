@@ -78,10 +78,6 @@ public class UltimateQASmellyTest {
         browserDriver.findElement(By.id("et_pb_contact_name_0")).sendKeys("Student");
         // Modifies the temporary global variable.
         temporaryEmail = "test@clean-code.com";
-        // Sends the email using that global variable.
-        browserDriver.findElement(By.id("et_pb_contact_email_0")).sendKeys(temporaryEmail);
-        // Clicks the submit button located by name.
-        browserDriver.findElement(By.name("et_builder_submit_button")).click();
 
 // Forcing the program to stop for exactly 2 seconds is a bad practice.
 // If the page loads in half a second, we still keep waiting,
