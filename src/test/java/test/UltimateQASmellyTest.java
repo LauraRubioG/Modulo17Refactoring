@@ -196,5 +196,118 @@ public class UltimateQASmellyTest {
         browserDriver.quit();
     }
 
+    // A test case that attempts to evaluate state, but still suffers from duplicate setup
+    // and hardcoded values.
+    @Test
+    void readingAttributesWithoutClicking() {
+// SMELL 4 - Dispensables: Duplicate Code
+        // Prepares the resources again.
+        WebDriverManager.chromedriver().setup();
+        // Opens a different session.
+        WebDriver browserDriver = new ChromeDriver();
+        // Enlarges the window again.
+        browserDriver.manage().window().maximize();
+
+        // Calls the unprotected configuration.
+        InternalConfig internalConfig = new InternalConfig();
+        // Asks to retrieve the publicly exposed URL.
+        browserDriver.get(internalConfig.baseWebsiteUrl);
+
+// SMELL 5 - Couplers: Feature Envy
+// We force our test to understand what a native web "WebElement" is,
+// instead of just making a general business query.
+        // Assigns the native button element to a variable.
+        WebElement submitButton = browserDriver.findElement(By.name("et_builder_submit_button"));
+        // Asks Selenium to evaluate if the view of that element was painted successfully.
+        boolean isSubmitButtonVisible = submitButton.isDisplayed();
+
+// We continue using the temporary global variable without a real purpose in this test.
+        // Throws a sample email into the unused variable.
+        temporaryEmail = "another-useless-email@test.com";
+
+// SMELL 7 - Dispensables: Dead Code
+// We create a condition that will always be false. The program notices this
+// and simply skips the entire block. This code will never be executed.
+// Hardcoded flags that prevent execution paths represent
+// Dead Code. It clutters the test execution and provides zero value.
+        // Rigid flag variable.
+        boolean impossibleCondition = false;
+        // Condition inaccessible to the system.
+        if (impossibleCondition) {
+            // Print skipped by the compiler.
+            System.out.println("This code is completely dead and will never be printed");
+            // Skipped refresh.
+            browserDriver.navigate().refresh();
+        }
+
+// Putting complex logic and conditionals to know what environment we are in
+// is a mistake inside a test. The test shouldn't think so much;
+// this data should be sent from an external configuration file.
+        // Manual environment declaration.
+        String testEnvironment = "QA";
+        // Empty string declaration.
+        String expectedDomain = "";
+        // QA environment evaluation.
+        switch (testEnvironment) {
+            case "Development":
+                // Localhost return.
+                expectedDomain = "localhost";
+                break;
+            case "QA":
+                // QA return.
+                expectedDomain = "ultimateqa";
+                break;
+            case "Production":
+                // Prod return.
+                expectedDomain = "ultimateqa.com";
+                break;
+            default:
+                // Generic return.
+                expectedDomain = "unknown";
+                break;
+        }
+
+// SMELL 7 - Dispensables: Dead Code
+        // Discarded array structure.
+        // Creating complex data structures that are
+        // immediately discarded is a waste of processing power and decreases code
+        // readability. Remove it entirely.
+        String[] dispensableArray = {"Bloater", "Coupler", "Dispensable"};
+
+        // Checks visibility validity.
+        assertTrue(isSubmitButtonVisible);
+        // Checks that the address is from ultimateqa.
+        assertTrue(browserDriver.getCurrentUrl().contains(expectedDomain));
+
+        // Shuts down the redundant instance.
+        browserDriver.quit();
+    }
+
+    // SMELL 7 - Dispensables: Dead Code
+// This method is never called from any test. It is just taking up space
+// and confusing developers looking for what it does.
+// Private methods that are never invoked by any other method
+// within the class are Dead Code. They should be deleted to keep the codebase clean
+// and reduce maintenance overhead.
+    private void obsoleteMethodForOldInterface() {
+        // Print that never arrives.
+        System.out.println("This is never called");
+    }
+
+    // SMELL 7 - Dispensables: Dead Code
+// This entire method is Dead Code. It performs internal
+// calculations but does not return them, and the method itself is never called.
+// Leaving this in the codebase causes confusion and violates the
+// you aren't gonna need it principle.
+    private void calculateUnnecessaryMath() {
+        // First digit empty of use.
+        int firstNumber = 5;
+        // Second digit empty of use.
+        int secondNumber = 10;
+        // Invisible mathematical equation.
+        int sumOfNumbers = firstNumber + secondNumber;
+        // Unreachable result.
+        System.out.println("Result: " + sumOfNumbers);
+    }
 
 }
