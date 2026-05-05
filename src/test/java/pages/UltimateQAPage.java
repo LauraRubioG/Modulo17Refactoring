@@ -53,8 +53,6 @@ public class UltimateQAPage {
         browserDriver.findElement(nameLocator).sendKeys(studentName);
         // Locates the email input and types the received information.
         browserDriver.findElement(emailLocator).sendKeys(studentEmail);
-        // Locates the main contact submit button and clicks it.
-        browserDriver.findElement(submitButtonLocator).click();
     }
 
     // Here we solve the Switch Statements problem.
